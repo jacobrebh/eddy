@@ -31,6 +31,64 @@
         <script>
 
 		jQuery(document).ready(function(){
+			
+			function reqFile(path, cb){
+				 var xhr;
+		            if (cb == null) {
+		                cb = function() {
+		                };
+		            }
+		            xhr = new XMLHttpRequest;
+		            xhr.open("GET", path, true);
+		            xhr.responseType = "arraybuffer";
+		            xhr.onload = function() {
+		                var data;
+		                data = new Uint8Array(xhr.response || xhr.mozResponseArrayBuffer);
+						console.log('reqFile xhr.onload data: ',data);
+		                return cb(data);
+		            };
+		            return xhr.send(null);
+			};
+			
+			function readFile(uint8array){
+				var reader = new FileReader();
+				
+				var mimeString = 'image/jpeg';
+				
+				reader.onload = function(event) {
+				    var contents = event.target.result;
+				    console.log("File contents: " + contents);
+					var image = document.createElement('img');
+					    image.src = contents;
+					    document.body.appendChild(image);
+				};
+
+				reader.onerror = function(event) {
+				    console.error("File could not be read! Code " + event.target.error.code);
+				};
+				
+				console.log('uint8array.buffer',uint8array.buffer);
+				var dataView = new DataView(uint8array.buffer);
+				
+				var blob = new Blob([dataView], { type: mimeString });
+				console.log('blob',blob);
+				
+				
+				reader.readAsDataURL(blob);
+			};
+			
+			if (window.File && window.FileReader && window.FileList && window.Blob) {
+				
+					var file = reqFile('/htdocs/eddy/html5-boilerplate-4.3.0/bike.jpeg', readFile);
+
+			}else{
+				console.log('Browser not supported');
+			}
+			
+		
+ 			//	reader.readAsDataURL(blob);
+			
+			/*
 			var psd;
 				
 			psd = PSD.fromURL('/htdocs/eddy/html5-boilerplate-4.3.0/bridge.psd', function(psd) {
@@ -49,13 +107,14 @@
 				psd.parse();
 				
 				console.log('psd',psd);
-				console.log('layer5 data', psd.layers[5].file.data);
+				console.log('layer5.file.data', psd.layers[5].file.data);
+				console.log('layer5.image.byteCounts',psd.layers[5].image.byteCounts);
+				
+				console.log('btoa',btoa(psd.layers[5].file.data));
 				
 				var mimeString = 'image/jpeg';
 				var dataView = new DataView(psd.layers[5].file.data.buffer);
-				
-				
-				var blob = new Blob([dataView], { type: mimeString });		
+				var blob = btoa(psd.layers[5].file.data);//new Blob([dataView], { type: mimeString });		
 				var reader = new FileReader();
 				  reader.onload = function(event){
 					console.log('onload')
@@ -67,7 +126,7 @@
 				}; // data url!
 				  reader.readAsDataURL(blob);
 			   
-			
+			*/
 			
 			//	var s = encode(psd.image.file.data.buffer);
 			//	console.log('s',s);
@@ -100,7 +159,7 @@
 				  }
 				  return _results;
 				});*/
-			});
+		//	});
 
 			//
 		});
