@@ -1222,8 +1222,8 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SO
             this.size = [this.rows, this.cols];
 
 			console.log('this',this);
-			/*
-            if (this.sig !== "8BPS") {
+			
+            if (this.sig !== "8BPS") {byte
                 throw "Not a PSD signature: " + this.header['sig'];
             }
             if (this.version !== 1) {
@@ -1233,7 +1233,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SO
                 this.modename = MODES[this.mode];
             } else {
                 this.modename = "(" + this.mode + ")";
-            }*/
+            }
             this.colormodepos = this.file.pos;
             return this.file.skipBlock("color mode data");
         };
