@@ -17,6 +17,7 @@
         <script src="js/vendor/modernizr-2.6.2.min.js"></script>
 		<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 		<script src="psdjs.js"></script>
+		<script src="Base64.js"></script>
 		
     </head>
     <body>
@@ -31,10 +32,8 @@
 
 		jQuery(document).ready(function(){
 			var psd;
-			
+				
 			psd = PSD.fromURL('/htdocs/eddy/html5-boilerplate-4.3.0/bridge.psd', function(psd) {
-			    console.log('PSD loaded!');
-				console.log('psd',psd.file);
 				
 				var bytes = psd.file.data;
 				
@@ -49,11 +48,40 @@
 
 				psd.parse();
 				
-				console.log('psd.image.file.data', psd.image.file.data);
-				var base64Data = window.btoa(String.fromCharCode.apply(null, psd.image.file.data));
-				console.log('base64Data',base64Data);
-				var img = '<img src="data:image/png;base64,'+ base64Data +   '"/>';
-				$('body').append(img);
+				console.log('psd',psd);
+				console.log('layer5 data', psd.layers[5].file.data);
+				
+				var mimeString = 'image/jpeg';
+				var dataView = new DataView(psd.layers[5].file.data.buffer);
+				
+				
+				var blob = new Blob([dataView], { type: mimeString });		
+				var reader = new FileReader();
+				  reader.onload = function(event){
+					console.log('onload')
+				    console.log('event.target.result',event.target.result);
+					var image = document.createElement('img');
+					    image.src = event.target.result;
+					
+					    document.body.appendChild(image);
+				}; // data url!
+				  reader.readAsDataURL(blob);
+			   
+			
+			
+			//	var s = encode(psd.image.file.data.buffer);
+			//	console.log('s',s);
+				
+				
+				//console.log('fromCharCode', String.fromCharCode.apply(null, bytes) );
+				//var base64Data = btoa();
+				//console.log('bytes',bytes);
+				//var img = '<img src="data:image/png;base64,'+ base64Data +   '"/>';
+				//$('body').append(img);
+				
+				
+				
+				
 				/*
 				exec("mkdir -p " + __dirname + "/output", function() {
 				  var layer, _i, _len, _ref, _results;
