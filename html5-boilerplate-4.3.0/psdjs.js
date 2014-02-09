@@ -1220,6 +1220,9 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SO
                 this[section] = data.shift();
             }
             this.size = [this.rows, this.cols];
+
+			console.log('this',this);
+			/*
             if (this.sig !== "8BPS") {
                 throw "Not a PSD signature: " + this.header['sig'];
             }
@@ -1230,7 +1233,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SO
                 this.modename = MODES[this.mode];
             } else {
                 this.modename = "(" + this.mode + ")";
-            }
+            }*/
             this.colormodepos = this.file.pos;
             return this.file.skipBlock("color mode data");
         };
