@@ -28,15 +28,20 @@
         <p>Hello world! This is HTML5 Boilerplate.</p>
 
         <script>
-         var psd;
 
-		//psd = PSD.fromFile('test.psd');
+		jQuery(document).ready(function(){
+			console.log('ready');
+			 var psd;
 
-		psd = PSD.fromFile('test.psd', function(psd) {
-		  return console.log('PSD loaded!');
+			//psd = PSD.fromFile('test.psd');
+
+			psd = PSD.fromURL('rayban-template.psd', function(psd) {
+			  return console.log('PSD loaded!');
+			});
+
+			//psd = new PSD(bytes);
 		});
-
-		//psd = new PSD(bytes);
+        
         </script>
     </body>
 </html>
