@@ -16,7 +16,7 @@
         <link rel="stylesheet" href="css/main.css">
         <script src="js/vendor/modernizr-2.6.2.min.js"></script>
 		<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
-		<script src="//cdnjs.cloudflare.com/ajax/libs/psd.js/0.4.5/psd.min.js"></script>
+		<script src="psdjs.js"></script>
 		
     </head>
     <body>
@@ -30,18 +30,47 @@
         <script>
 
 		jQuery(document).ready(function(){
-			console.log('ready');
-			 var psd;
+			var psd;
+			
+			psd = PSD.fromURL('/eddy/html5-boilerplate-4.3.0/rayban-template.psd', function(a) {
+			    console.log('PSD loaded!');
+				console.log('psd',a.file);
+				var bytes = a.file.data;
+				
+				
+				PSD.DEBUG = true
+				var psd = new PSD(a);
+				
+				console.log(psd);
+				
+				psd.setOptions({
+				  layerImages: true,
+				  onlyVisibleLayers: true
+				});
 
-			//psd = PSD.fromFile('test.psd');
-
-			psd = PSD.fromURL('rayban-template.psd', function(psd) {
-			  return console.log('PSD loaded!');
+				psd.parse();
+				/*
+				exec("mkdir -p " + __dirname + "/output", function() {
+				  var layer, _i, _len, _ref, _results;
+				  _ref = psd.layers;
+				  _results = [];
+				  for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+				    layer = _ref[_i];
+				    if (!layer.image) {
+				      continue;
+				    }
+				    _results.push((function(layer) {
+				      return layer.image.toFile(__dirname + ("/output/" + layer.name + ".png"), function() {
+				        return console.log("Layer " + layer.name + " output to file.");
+				      });
+				    })(layer));
+				  }
+				  return _results;
+				});*/
 			});
 
-			//psd = new PSD(bytes);
+			//
 		});
-        
         </script>
     </body>
 </html>
