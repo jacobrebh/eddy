@@ -1,0 +1,308 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "Packages/User/browserpreview.sublime-build",
+	"command_palette":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/jacobrebh/Documents/clients/tyler-eesenberg/i-care-sleeve/flatbed-print-specs.txt",
+		"/Users/jacobrebh/Desktop/style.css",
+		"/Users/jacobrebh/repos/no-way-jose/html5-boilerplate-4.3.0/humans.txt",
+		"/Users/jacobrebh/Desktop/test.scss",
+		"/Users/jacobrebh/Desktop/test.css",
+		"/Applications/MAMP/htdocs/recollect/404.html",
+		"/Applications/MAMP/htdocs/recollect/.htaccess",
+		"/Applications/MAMP/htdocs/recollect/js/rebh.js",
+		"/Applications/MAMP/htdocs/recollect/img/jacob-rebh.jpg",
+		"/Applications/MAMP/htdocs/recollect/hollowreed.html",
+		"/Applications/MAMP/htdocs/recollect/navtest.html",
+		"/Applications/MAMP/htdocs/recollect/css/layouttest.css",
+		"/Applications/MAMP/htdocs/recollect/com-publishing.html",
+		"/Applications/MAMP/htdocs/recollect/pro-it.html",
+		"/Applications/MAMP/htdocs/recollect/index.html",
+		"/Applications/MAMP/htdocs/recollect/the-hollow-reed.html",
+		"/Applications/MAMP/htdocs/recollect/css/reset.css",
+		"/Users/jacobrebh/Desktop/sass-test.scss.css",
+		"/Applications/MAMP/htdocs/recollect/g-raps.html",
+		"/Applications/MAMP/htdocs/recollect/css/rebh.css",
+		"/Applications/MAMP/htdocs/recollect/allwork.html",
+		"/Applications/MAMP/htdocs/recollect/shen-dojo.html",
+		"/Applications/MAMP/htdocs/recollect/money.html",
+		"/Applications/MAMP/htdocs/recollect/css/shen-dojo.css",
+		"/Applications/MAMP/htdocs/recollect/nav.html",
+		"/Applications/MAMP/htdocs/recollect/iscroll-test.html",
+		"/Applications/MAMP/htdocs/recollect/projectlinks.html",
+		"/Applications/MAMP/htdocs/recollect/profile.html",
+		"/Applications/MAMP/htdocs/recollect/css/nav.css",
+		"/Applications/MAMP/htdocs/recollect/parallax-index.html",
+		"/Applications/MAMP/htdocs/recollect/css/iscroll-test.css",
+		"/Users/jacobrebh/Documents/~jakesfolio/recollections/recollect/js/viewport.js",
+		"/Users/jacobrebh/Documents/index.html",
+		"/Applications/MAMP/htdocs/thehollowreed/wp-content/themes/imbalance2/header.php",
+		"/Users/jacobrebh/Desktop/wtp_cdprint_original.ai",
+		"/Applications/MAMP/htdocs/thehollowreed/wp-config.php",
+		"/Applications/MAMP/htdocs/Craft-1.3.2416/craft/config/db.php",
+		"/Applications/MAMP/htdocs/Craft-1.3.2416/craft/config/general.php",
+		"/Applications/MAMP/htdocs/money/wp-content/plugins/wp-invoice/core/wpi_template_functions.php",
+		"/Applications/MAMP/htdocs/money/wp-config.php",
+		"/Applications/MAMP/htdocs/money/wp-content/plugins/wp-invoice/core/wpi_invoice.php",
+		"/Applications/MAMP/htdocs/money/wp-content/themes/twentythirteen/header.php",
+		"/Applications/MAMP/htdocs/money/wp-content/themes/twentythirteen/footer.php",
+		"/Applications/MAMP/htdocs/stripe/wp-content/plugins/wordpress-stripe-integration/shortcodes.php",
+		"/Applications/MAMP/htdocs/stripe/wp-content/plugins/wordpress-stripe-integration/settings.php",
+		"/Applications/MAMP/htdocs/stripe/wp-content/plugins/wordpress-stripe-integration/wordpress-stripe-integration.php",
+		"/Applications/MAMP/htdocs/stripe/wp-config.php",
+		"/Applications/MAMP/htdocs/stripe/wp-content/plugins/wordpress-stripe-integration/wordpress-dtripe-integration.php"
+	],
+	"find":
+	{
+		"height": 30.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			".thumb a img",
+			"pp_nav",
+			".pp_nav",
+			"pp_close",
+			"#thumbs",
+			"ul#thumbs",
+			"ul#thumb",
+			"thumb",
+			"jacobrebh",
+			"body",
+			"height:100%",
+			"height: 100%",
+			"</li>",
+			"<li>",
+			"local",
+			".description div",
+			".form-buttons-wrapper",
+			"id_2",
+			".sub-description",
+			"class=\"sub-description\"",
+			".sub-description",
+			"class=\"txt-h2",
+			"copyright",
+			"0.44",
+			"clear",
+			"a",
+			"nav a",
+			"nav",
+			"description",
+			"project",
+			"0.64",
+			".nav",
+			".test",
+			".relative",
+			"0.64",
+			"href='javascript:void(0)'",
+			"rgba",
+			"0.8",
+			"145, 131, 122,",
+			"91837A",
+			"0.6",
+			"B09B7C",
+			"91837A",
+			"section",
+			"cover",
+			"parallax-bg",
+			".block",
+			"block",
+			"image/shendojo/",
+			"assets/img/",
+			"class=\"purple-bg light-purple\"",
+			"left-float",
+			"class=\"purple-bg light-purple\"",
+			"left-float",
+			"h2",
+			"dark",
+			"left-float",
+			"h2",
+			"class=\"purple-bg light-purple\"",
+			" /* RGBa with 0.6 opacity */",
+			"description",
+			"decription",
+			"#project-links a span",
+			".profile div",
+			"l1",
+			".flip-lake-michigan",
+			"hero2",
+			"content",
+			"header_hight",
+			"span class=\"\"",
+			"<br />",
+			"href=\"\"",
+			"reed",
+			"group",
+			"wp-content/themes/imbalance2/images",
+			"entry-header",
+			"entry-title",
+			"Dear",
+			"Invoice",
+			"reciept",
+			"patronage",
+			"tax",
+			"flush",
+			"flush vars",
+			"tax",
+			".3",
+			"tax",
+			".3",
+			"tax",
+			".3",
+			".30",
+			"bottom_line_title",
+			"logo",
+			"entry-title",
+			"h1.entry-title",
+			"small.notice",
+			".wpi_checkout_row",
+			".offline-payments",
+			"billing-title.offline-payments",
+			"billing-title",
+			"input",
+			"bottom_line_title"
+		],
+		"highlight": false,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 30.0
+	},
+	"input":
+	{
+		"height": 33.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 32.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"project": "eddy.sublime-project",
+	"replace":
+	{
+		"height": 56.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 263.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
