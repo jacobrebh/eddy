@@ -32,6 +32,10 @@
 
 		jQuery(document).ready(function(){
 			
+			/**
+			*  load from jpg
+			*/
+			
 			function reqFile(path, cb){
 				 var xhr;
 		            if (cb == null) {
@@ -86,12 +90,13 @@
 			}
 			
 		
- 			//	reader.readAsDataURL(blob);
+ 			/**
+			*  load from psd
+			*/
 			
-			/*
 			var psd;
 				
-			psd = PSD.fromURL('/htdocs/eddy/html5-boilerplate-4.3.0/bridge.psd', function(psd) {
+			psd = PSD.fromURL('/htdocs/eddy/html5-boilerplate-4.3.0/bike.psd', function(psd) {
 				
 				var bytes = psd.file.data;
 				
@@ -107,61 +112,27 @@
 				psd.parse();
 				
 				console.log('psd',psd);
-				console.log('layer5.file.data', psd.layers[5].file.data);
-				console.log('layer5.image.byteCounts',psd.layers[5].image.byteCounts);
-				
-				console.log('btoa',btoa(psd.layers[5].file.data));
-				
+					
 				var mimeString = 'image/jpeg';
-				var dataView = new DataView(psd.layers[5].file.data.buffer);
-				var blob = btoa(psd.layers[5].file.data);//new Blob([dataView], { type: mimeString });		
+				//var dataView = new DataView(psd.file.data.buffer);	
+				//var blob = new Blob([dataView], { type: mimeString });
+				
+				var blob   = new Blob([psd.file.data.buffer], { type: mimeString });
+					
 				var reader = new FileReader();
 				  reader.onload = function(event){
-					console.log('onload')
-				    console.log('event.target.result',event.target.result);
+					
+				    console.log('File contents: ',event.target.result);
 					var image = document.createElement('img');
 					    image.src = event.target.result;
 					
 					    document.body.appendChild(image);
-				}; // data url!
-				  reader.readAsDataURL(blob);
-			   
-			*/
+				}; 
 			
-			//	var s = encode(psd.image.file.data.buffer);
-			//	console.log('s',s);
-				
-				
-				//console.log('fromCharCode', String.fromCharCode.apply(null, bytes) );
-				//var base64Data = btoa();
-				//console.log('bytes',bytes);
-				//var img = '<img src="data:image/png;base64,'+ base64Data +   '"/>';
-				//$('body').append(img);
-				
-				
-				
-				
-				/*
-				exec("mkdir -p " + __dirname + "/output", function() {
-				  var layer, _i, _len, _ref, _results;
-				  _ref = psd.layers;
-				  _results = [];
-				  for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-				    layer = _ref[_i];
-				    if (!layer.image) {
-				      continue;
-				    }
-				    _results.push((function(layer) {
-				      return layer.image.toFile(__dirname + ("/output/" + layer.name + ".png"), function() {
-				        return console.log("Layer " + layer.name + " output to file.");
-				      });
-				    })(layer));
-				  }
-				  return _results;
-				});*/
-		//	});
-
-			//
+				reader.readAsDataURL(blob);
+			   
+			});
+			
 		});
         </script>
     </body>
