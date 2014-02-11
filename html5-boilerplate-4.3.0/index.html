@@ -18,7 +18,7 @@
 		<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 		<script src="psdjs.js"></script>
 		<script src="Base64.js"></script>
-		
+
     </head>
     <body>
         <!--[if lt IE 7]>
@@ -27,15 +27,13 @@
 
         <!-- Add your site or application content here -->
         <p>Hello world! This is HTML5 Boilerplate.</p>
-
         <script>
 
 		jQuery(document).ready(function(){
-			
+
 			/**
 			*  load from jpg
 			*/
-			
 			function reqFile(path, cb){
 				 var xhr;
 		            if (cb == null) {
@@ -47,92 +45,108 @@
 		            xhr.responseType = "arraybuffer";
 		            xhr.onload = function() {
 		                var data;
+		                console.log('xhr.onload response : ', xhr.response);
 		                data = new Uint8Array(xhr.response || xhr.mozResponseArrayBuffer);
-						console.log('reqFile xhr.onload data: ',data);
+		                console.log('xhr.onload response to Uint8Array: ', data);
 		                return cb(data);
 		            };
 		            return xhr.send(null);
 			};
-			
+
 			function readFile(uint8array){
-				var reader = new FileReader();
-				
-				var mimeString = 'image/jpeg';
-				
-				reader.onload = function(event) {
-				    var contents = event.target.result;
-				    console.log("File contents: " + contents);
-					var image = document.createElement('img');
-					    image.src = contents;
-					    document.body.appendChild(image);
-				};
+					var reader = new FileReader();
 
-				reader.onerror = function(event) {
-				    console.error("File could not be read! Code " + event.target.error.code);
-				};
-				
-				console.log('uint8array.buffer',uint8array.buffer);
-				var dataView = new DataView(uint8array.buffer);
-				
-				var blob = new Blob([dataView], { type: mimeString });
-				console.log('blob',blob);
-				
-				
-				reader.readAsDataURL(blob);
+					var mimeString = 'image/jpeg';
+
+					reader.onload = function(event) {
+					    var base64 = event.target.result;
+					    //console.log("1 File contents: " + base64);
+						var image = document.createElement('img');
+						    image.src = base64;
+						    document.body.appendChild(image);
+					};
+
+					reader.onerror = function(event) {
+					    console.error("File could not be read! Code " + event.target.error.code);
+					};
+
+					console.log('uint8array.buffer',uint8array.buffer);
+					var dataView = new DataView(uint8array.buffer);
+
+					var blob = new Blob([dataView], { type: mimeString });
+					console.log('blob',blob);
+
+
+					reader.readAsDataURL(blob);
 			};
-			
-			if (window.File && window.FileReader && window.FileList && window.Blob) {
-				
-					var file = reqFile('/htdocs/eddy/html5-boilerplate-4.3.0/bike.jpeg', readFile);
 
+			if (window.File && window.FileReader && window.FileList && window.Blob) {
+					var file = reqFile('./bike.jpeg', readFile);
 			}else{
-				console.log('Browser not supported');
+					console.log('Browser not supported');
 			}
-			
-		
+
+
  			/**
 			*  load from psd
 			*/
-			
-			var psd;
-				
-			psd = PSD.fromURL('/htdocs/eddy/html5-boilerplate-4.3.0/bike.psd', function(psd) {
-				
-				var bytes = psd.file.data;
-				
-				
-				PSD.DEBUG = false;
-				psd = new PSD(bytes);
-				
-				psd.setOptions({
-				  layerImages: true,
-				  onlyVisibleLayers: true
-				});
 
-				psd.parse();
-				
-				console.log('psd',psd);
-					
-				var mimeString = 'image/jpeg';
-				//var dataView = new DataView(psd.file.data.buffer);	
-				//var blob = new Blob([dataView], { type: mimeString });
-				
-				var blob   = new Blob([psd.file.data.buffer], { type: mimeString });
-					
-				var reader = new FileReader();
-				  reader.onload = function(event){
-					
-				    console.log('File contents: ',event.target.result);
-					var image = document.createElement('img');
-					    image.src = event.target.result;
-					
+			var layer, psd, _fn, _i, _len, _ref;
+
+			psd = PSD.fromURL('./bike.psd', function(psd) {
+						console.log('bike.psd', psd);
+
+						/*
+						var base64 = psd.toImage();
+
+						var image = document.createElement('img');
+					    image.src = base64;
 					    document.body.appendChild(image);
-				}; 
-			
-				reader.readAsDataURL(blob);
-			   
+						*/
+
+						psd.setOptions({
+						  layerImages: true,
+						  onlyVisibleLayers: true
+						});
+
+						psd.parse();
+
+						_ref = psd.layers;
+						_fn = function(layer) {
+							try{
+									 return layer.image.toImage();
+							}catch (e){
+								console.log('tried but failed.......******');
+								console.log('e',e);
+								return false;
+							}
+
+
+						};
+
+						for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+							console.log('_i',_i);
+						  layer = _ref[_i];
+						  if (layer.isFolder) {
+						    continue;
+						  }
+						  var _lare = _fn(layer);
+
+						  console.log('_lare',_lare);
+						  if(_lare){
+						  	var image = document.createElement('img');
+					    	image.src = _lare;
+					    	document.body.appendChild(image);
+						  }
+
+
+						}
 			});
-			
+
+
+
+
+
 		});
         </script>
     </body>
