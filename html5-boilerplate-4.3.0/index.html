@@ -27,6 +27,8 @@
 
         <!-- Add your site or application content here -->
         <p>Hello world! This is HTML5 Boilerplate.</p>
+
+		<canvas id="c"></canvas>
         <script>
 
 		jQuery(document).ready(function(){
@@ -81,7 +83,9 @@
 			};
 
 			if (window.File && window.FileReader && window.FileList && window.Blob) {
-					var file = reqFile('./bike.jpeg', readFile);
+					var file = reqFile('/htdocs/eddy/html5-boilerplate-4.3.0/bike.jpeg', readFile);
+					
+					
 			}else{
 					console.log('Browser not supported');
 			}
@@ -93,8 +97,8 @@
 
 			var layer, psd, _fn, _i, _len, _ref;
 
-			psd = PSD.fromURL('./bike.psd', function(psd) {
-						console.log('bike.psd', psd);
+			psd = PSD.fromURL('/htdocs/eddy/html5-boilerplate-4.3.0/bike.psd', function(psd) {
+						console.log('/htdocs/eddy/html5-boilerplate-4.3.0/bike.psd', psd);
 
 						/*
 						var base64 = psd.toImage();
@@ -130,7 +134,10 @@
 						  if (layer.isFolder) {
 						    continue;
 						  }
-						  var _lare = _fn(layer);
+						  var _lare = _fn(layer);//toImage
+						  var c = document.getElementById('c');
+						  var _clare = layer.image.toCanvas(c, '305', '165');
+						 console.log('_clare', _clare);
 
 						  console.log('_lare',_lare);
 						  if(_lare){
