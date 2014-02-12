@@ -96,6 +96,31 @@
 			*/
 
 			var layer, psd, _fn, _i, _len, _ref;
+			
+			
+			 var toCanvas = function(canvas, width, height) {
+		            var context, i, imageData, pixelData, pxl, _i, _len, _ref;
+		            if (width == null) {
+		                width = this.getImageWidth();
+		            }
+		            if (height == null) {
+		                height = this.getImageHeight();
+		            }
+		            if (!(width != null) || !(height != null) || width <= 0 || height <= 0) {
+		                throw "Layer does not contain image data";
+		            }
+		            canvas.width = width;
+		            canvas.height = height;
+		            context = canvas.getContext('2d');
+		            imageData = context.getImageData(0, 0, canvas.width, canvas.height);
+		            pixelData = imageData.data;
+		            _ref = this.toCanvasPixels();
+		            for (i = _i = 0, _len = _ref.length; _i < _len; i = ++_i) {
+		                pxl = _ref[i];
+		                pixelData[i] = pxl;
+		            }
+		            return context.putImageData(imageData, 0, 0);
+		        };
 
 			psd = PSD.fromURL('/htdocs/eddy/html5-boilerplate-4.3.0/bike.psd', function(psd) {
 						console.log('/htdocs/eddy/html5-boilerplate-4.3.0/bike.psd', psd);
@@ -138,13 +163,18 @@
 						  var c = document.getElementById('c');
 						  var _clare = layer.image.toCanvas(c, '305', '165');
 						 console.log('_clare', _clare);
-
+						
+						
+						//append canvas image
 						  console.log('_lare',_lare);
 						  if(_lare){
 						  	var image = document.createElement('img');
 					    	image.src = _lare;
 					    	document.body.appendChild(image);
 						  }
+						
+						//pixel data
+							console.log('layer.image.pixelData',layer.image.pixelData);
 
 
 						}
